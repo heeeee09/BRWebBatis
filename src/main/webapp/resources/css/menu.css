@@ -1,0 +1,48 @@
+#menuTitle {
+    width: 500px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: #FFD65B;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.menus {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.menus img {
+    height: 400px;
+}
+.iceName {
+    font-size: 40px;
+    padding: 10px;
+}
+.iceType {
+    font-size: 30px;
+    color: #46A2E3;
+    padding: 5px;
+}
+.orderBtn {
+    width: 250px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+    margin-bottom: 50px;
+}
+#menuCategory{
+    display: flex;
+    justify-content: space-around;
+}
+

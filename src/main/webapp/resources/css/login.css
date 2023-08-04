@@ -1,0 +1,74 @@
+
+#login-field {
+    /* border: 10px solid #ccc; */
+    padding: 70px;
+}
+#loginBox {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label {
+    width: 180px;
+    color: #402022;
+}
+.id {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 30px;
+}
+#line {
+    border: 1px solid #ccc;
+    width: 900px;
+}
+.password {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 30px;
+}
+input {
+    width: 500px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+input::placeholder {
+    font-size: 20px;
+}
+
+#login-field>p {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    color: #402022;
+}
+button {
+    width: 300px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border: 0px;
+    font-weight: lighter;
+    color: white;
+}
+#loginbtn {
+    margin-top: 20px;
+    background-color: #F04DA3;
+    cursor: pointer !important;
+}
+#pwbtn {
+    background-color: #402022;
+    cursor: pointer !important;
+}
+#btnBox {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
