@@ -60,6 +60,10 @@ public class LoginController extends HttpServlet {
 		}else {
 			request.setAttribute("title", "로그인 실패");
 			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다.");
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/login.do");
+			request.setAttribute("btnMsgBack", "로그인 화면으로 이동");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 			
 		}

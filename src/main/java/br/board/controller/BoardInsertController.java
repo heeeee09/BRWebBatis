@@ -50,11 +50,15 @@ public class BoardInsertController extends HttpServlet {
 		if(result > 0) {
 			request.setAttribute("title", "게시글 작성 완료");
 			request.setAttribute("msg", "게시글이 작성되었습니다.");
-			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
+			request.setAttribute("url", "/board/boardList.do?currentPage=1");
+			request.setAttribute("btnMsg", "문의사항으로 이동");
+			request.getRequestDispatcher("/common/serviceResultOneBtn.do").forward(request, response);
 		}else {
 			request.setAttribute("title", "게시글 작성 실패");
 			request.setAttribute("msg", "게시글이 작성이 완료되지 않았습니다.");
-			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
+			request.setAttribute("url", "/board/boardList.do?currentPage=1");
+			request.setAttribute("btnMsg", "문의사항으로 이동");
+			request.getRequestDispatcher("/common/serviceResultOneBtn.do").forward(request, response);
 		}
 	}
 

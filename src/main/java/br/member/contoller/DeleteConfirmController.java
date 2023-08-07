@@ -47,13 +47,14 @@ public class DeleteConfirmController extends HttpServlet {
 		if(result > 0) {
 			session.invalidate();
 			request.setAttribute("title", "회원 탈퇴 성공");
-			request.setAttribute("msg", "회원 탈퇴를 성공하였습니다.");
-			request.getRequestDispatcher("/WEB-INF/views/common/serviceResult.jsp").forward(request, response);
-			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
+			request.setAttribute("url", "/index.jsp");
+			request.setAttribute("btnMsg", "메인으로 이동");
+			request.getRequestDispatcher("/common/serviceResultOneBtn.do").forward(request, response);
 		} else {
 			request.setAttribute("title", "회원 탈퇴 실패");
-			request.setAttribute("msg", "회원 탈퇴에 실패했습니다.");
-			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
+			request.setAttribute("url", "/member/myPage.do");
+			request.setAttribute("btnMsg", "마이페이지로 이동");
+			request.getRequestDispatcher("/common/serviceResultOneBtn.do").forward(request, response);
 		}
 
 	}

@@ -8,7 +8,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>${requestScope.title }</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="../resources/css/join_complite.css">
+	    <link rel="stylesheet" href="../resources/css/serviceResult.css">
 	    <link rel="stylesheet" href="../resources/css/reset.css">
 	    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 	    <style>
@@ -52,7 +52,8 @@
 	            <div id="compliteBox">
 	                <p id="complite">${requestScope.msg }</p>
 	                <div id="button">
-	                    <button><a href="/index.jsp" class="whiteFont">메인 화면으로 이동</a></button>
+	                    <button><a href="${requestScope.urlIndex }" class="whiteFont">${requestScope.btnMsgIndex }</a></button>
+	                    <button><a href="${requestScope.urlBack }" class="whiteFont">${requestScope.btnMsgBack }</a></button>
 	                </div>
 	            </div>
 	        </section>

@@ -50,13 +50,19 @@ public class ModifyController extends HttpServlet {
 //			request.setAttribute("url", "/index.jsp");
 			request.setAttribute("title", "회원 정보 수정 완료");
 			request.setAttribute("msg", "회원 정보 수정을 완료했습니다.");
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/myPage.do");
+			request.setAttribute("btnMsgBack", "마이 페이지 화면으로 이동");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
-//			response.sendRedirect("/WEB-INF/views/common/serviceSuccess.jsp");
 		} else {
 			// 실패
 			request.setAttribute("title", "회원 정보 수정 실패");
 			request.setAttribute("msg", "회원 수정이 완료되지 않았습니다.");
-//			request.getRequestDispatcher("/member/serviceFail.jsp").forward(request, response);
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/myPage.do");
+			request.setAttribute("btnMsgBack", "마이 페이지 화면으로 이동");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 		}
 		

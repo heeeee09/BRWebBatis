@@ -57,11 +57,19 @@ public class JoinController extends HttpServlet {
 		if(result > 0) {
 			request.setAttribute("title", "회원가입 성공");
 			request.setAttribute("msg", "회원가입이 완료되었습니다.");
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/login.do");
+			request.setAttribute("btnMsgBack", "로그인 화면으로 이동");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 		} else {
 			// 실패
 			request.setAttribute("title", "회원가입 실패");
 			request.setAttribute("msg", "회원가입 실패했어요");
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/registor.do");
+			request.setAttribute("btnMsgBack", "회원가입 화면으로 이동");
 			request.getRequestDispatcher("/member/serviceResult.do").forward(request, response);
 		}
 	}

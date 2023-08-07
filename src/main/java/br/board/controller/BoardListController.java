@@ -56,9 +56,6 @@ public class BoardListController extends HttpServlet {
 		request.setAttribute("bList", bList);
 		request.setAttribute("pageNavi", pd.getPageNavi());
 		request.getRequestDispatcher("/WEB-INF/views/board/boardList.jsp").forward(request, response);
-		for(BRBoard b : bList) {
-			System.out.println(b.getBoardNo());
-		}
 	}
 	
 	/*

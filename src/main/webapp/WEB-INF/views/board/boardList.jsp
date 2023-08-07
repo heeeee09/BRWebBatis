@@ -35,7 +35,7 @@
 								<td>${board.boardDate }</td>
 								<td><a href="/board/detail.do?boardNo=${board.boardNo }">${board.boardSubject }</a></td>
 								<td>확인중</td>
-								<td>X</td>
+								<td><a href="javascript:void(0)" onclick="deleteCheck('${board.boardNo}')">X</a></td>
 							</tr>
 							</c:forEach>
 							<tr>
@@ -53,6 +53,11 @@
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 	    </div>
 	    <script>
+			const deleteCheck = (boardNo) => {
+				if(confirm("정말로 삭제하시겠습니까?")){
+					location.href = "/board/delete.do?boardNo="+boardNo;
+				}
+			}
 	        function logoLink() {
 	            location.href = "/index.jsp"
 	        }

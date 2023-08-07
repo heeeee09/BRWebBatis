@@ -23,6 +23,16 @@ public class BRBoardDAO {
 		List<BRBoard> bList = session.selectList("BoardMapper.selectBoardList", boardWriter, rowBounds);
 		return bList;
 	}
+	
+	public BRBoard selectOneByNo(SqlSession session, int boardNo) {
+		BRBoard board = session.selectOne("BoardMapper.selectOneByNo", boardNo);
+		return board;
+	}
+	
+	private int getTotalCount(SqlSession session) {
+		int totalCount = session.selectOne("BoardMapper.getTotalCount");
+		return totalCount;
+	}
 
 	public String generatePageNavi(SqlSession session, int currentPage, String boardWriter) {
 		int totalCount = session.selectOne("BoardMapper.selectBoardListCount", boardWriter);	// 전체 글 수
@@ -71,8 +81,9 @@ public class BRBoardDAO {
 		return result.toString();
 	}
 
-	public BRBoard selectOneByNo(SqlSession session, int boardNo) {
-		BRBoard board = session.selectOne("BoardMapper.selectOneByNo", boardNo);
-		return board;
+	public int deleteBoard(SqlSession session, int boardNo) {
+		int result = session.delete("BoardMapper.deleteBoard", boardNo);
+		return result;
 	}
+
 }

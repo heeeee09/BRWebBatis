@@ -16,11 +16,17 @@
  	<insert id="boardInsert">
  		INSERT INTO BR_CUSTOMER_BOARD_TBL VALUES(SEQ_CUSTOMER_BOARD_NO.NEXTVAL,#{boardSubject},#{boardContent},DEFAULT,#{boardWriter})
  	</insert>
- 	<select id="selectBoardListCount" resultType="int">
+ 	<select id="selectBoardListCount" resultType="_int">
  		SELECT COUNT(*) FROM BR_CUSTOMER_BOARD_TBL WHERE CUSTOMER_BOARD_WRITER = #{memberId}
  	</select>
  	<select id="selectOneByNo" resultMap="boardResultMap">
  		SELECT * FROM BR_CUSTOMER_BOARD_TBL WHERE CUSTOMER_BOARD_NO = #{boardNo }
  	</select>
+ 	<select id="getTotalCount" resultType="_int">
+ 		SELECT COUNT(*) FROM BR_CUSTOMER_BOARD_RBL
+ 	</select>
+ 	<delete id="deleteBoard">
+ 		DELETE FROM BR_CUSTOMER_BOARD_TBL WHERE CUSTOMER_BOARD_NO = #{boardNo}
+ 	</delete>
  
  </mapper>

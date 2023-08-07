@@ -29,7 +29,7 @@
 	                          	    ${board.boardSubject }
 	                            </div>
 	                            <div id="contentBox">
-	                            	${board.boardContent }
+	                            	 ${board.boardContent }
 	                            </div>
 	                        </div>
 							</tr>

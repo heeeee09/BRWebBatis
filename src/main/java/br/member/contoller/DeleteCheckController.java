@@ -103,6 +103,10 @@ public class DeleteCheckController extends HttpServlet {
 		} else {
 			request.setAttribute("title", "회원 탈퇴 실패");
 			request.setAttribute("msg", "비밀번호가 다릅니다.");
+			request.setAttribute("urlIndex", "/index.jsp");
+			request.setAttribute("btnMsgIndex", "메인으로 이동");
+			request.setAttribute("urlBack", "/member/myPage.do");
+			request.setAttribute("btnMsgBack", "마이페이지로 이동");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 		}
 		

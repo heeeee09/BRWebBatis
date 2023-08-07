@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 	<head>
 	    <meta charset="UTF-8">
@@ -5,7 +8,7 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	    <title>${requestScope.title }</title>
 	    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="../resources/css/join_complite.css">
+	    <link rel="stylesheet" href="../resources/css/serviceResult.css">
 	    <link rel="stylesheet" href="../resources/css/reset.css">
 	    <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 	    <style>
@@ -20,9 +23,14 @@
 	            <div id="logo">
 	                <a href="#"><img id="logoimg" onclick="logoLink()" src="../resources/image/header_Logo.png" alt="로고이미지"></a>
 	            </div>
-	            <div id="login">
-	                <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
-	            </div>
+            <div id="login">
+            	<c:if test="${sessionScope.memberId eq null}">
+                <a href="#" onclick="loginLink()" style="color: #F04DA3">LOGIN</a>
+                </c:if>
+            	<c:if test="${sessionScope.memberId ne null}">
+                <a href="/member/logout.do" style="color: #F04DA3">LOGOUT</a>
+                </c:if>
+            </div>
 	            <div id="mypage">
 	                <a href="#" onclick="mypageLink()">MYPAGE</a>
 	            </div>
@@ -44,7 +52,7 @@
 	            <div id="compliteBox">
 	                <p id="complite">${requestScope.msg }</p>
 	                <div id="button">
-	                    <button><a href="/index.jsp" class="whiteFont">메인 화면으로 이동</a></button>
+	                    <button><a href="${requestScope.url }" class="whiteFont">${requestScope.btnMsg }</a></button>
 	                </div>
 	            </div>
 	        </section>
