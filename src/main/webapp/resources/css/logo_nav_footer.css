@@ -1,7 +1,12 @@
 #container {
-    width: 1200px;
+    width: 100%;
+    /* max-width: 1200px; */
+    min-width: 1200px;
     margin: 0 auto;
     /* display: flex; */
+}
+#contentBox{
+    max-width: 1000px;
 }
 
 header {
@@ -13,15 +18,15 @@ a {
     color: inherit;
 }
 
-a:visited {
+/* a:visited {
     color: #000;
-}
+} */
 .whiteFont:visited {
     color: rgb(255, 255, 255);
 }
 
 #logo {
-    width: 1200px;
+    width: 100%;
     height: 220px;
     background-color: white;
     margin-bottom: 0;
@@ -33,7 +38,7 @@ a:visited {
     padding: 50px;
     display: block;
     margin: auto;
-    width: 900px;
+    width: 80%;
 }
 
 #user-category {
