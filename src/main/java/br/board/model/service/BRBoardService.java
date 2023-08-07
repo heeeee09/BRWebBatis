@@ -21,7 +21,7 @@ public class BRBoardService {
 	public PageData selectBoardList(int currentPage, String boardWriter) {
 		SqlSession session = SqlSessionTemplate.getSqlSession();
 		List<BRBoard>bList = bDao.selectBoardList(session, currentPage, boardWriter);
-		String pageNavi = bDao.generatePageNavi(session, currentPage);
+		String pageNavi = bDao.generatePageNavi(session, currentPage, boardWriter);
 		PageData pd = new PageData(bList, pageNavi);
 		session.close();
 		return pd;

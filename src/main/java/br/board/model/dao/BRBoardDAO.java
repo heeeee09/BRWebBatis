@@ -24,8 +24,8 @@ public class BRBoardDAO {
 		return bList;
 	}
 
-	public String generatePageNavi(SqlSession session, int currentPage) {
-		int totalCount = session.selectOne("BoardMapper.selectBoardListCount");	// 전체 글 수
+	public String generatePageNavi(SqlSession session, int currentPage, String boardWriter) {
+		int totalCount = session.selectOne("BoardMapper.selectBoardListCount", boardWriter);	// 전체 글 수
 //		String count = selectBoardListCount(session);
 //		int totalCount = Integer.parseInt(count);
 		int recordCountPerPage = 5;		// 페이지당 보여줄 글 수
