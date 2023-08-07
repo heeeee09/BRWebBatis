@@ -51,7 +51,7 @@
 			        	탈퇴 후 취소할 수 없습니다.</p>
 			        <div id="closebtn">
 			        <button id="deleteBtn" type="submit" value="탈퇴하기">탈퇴하기</button>
-			        <button type="reset" onclick="backMyPage()">취소</button>
+			        <button type="button"><a href="/member/myPage.do">취소</a></button>
 			        </div>
 		        </form>
 		        </section>

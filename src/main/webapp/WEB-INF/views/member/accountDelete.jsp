@@ -29,8 +29,8 @@
 	                        <div id="line"></div>
 	                    </div>
 	                    <div id="buttons">
-	                        <button onclick="deleteBtn()">탈퇴하기</button>
-	                        <a href="/member/myPage.do"><button id="back">이전 페이지로<br>이동</button></a>
+	                        <button type="submit" onclick="deleteBtn()">탈퇴하기</button>
+	                        <button type="button" id="back"><a href="/member/myPage.do">이전 페이지로<br>이동</a></button>
 	                    </div>
                     </form>
                 </div>

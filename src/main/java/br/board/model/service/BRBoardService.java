@@ -3,6 +3,7 @@ package br.board.model.service;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.type.SqlTimestampTypeHandler;
 
 import br.board.model.dao.BRBoardDAO;
 import br.board.model.vo.BRBoard;
@@ -46,6 +47,13 @@ public class BRBoardService {
 	public PageData selectBoardNavi(int currentPage) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public BRBoard selectOneByNo(int boardNo) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		BRBoard board = bDao.selectOneByNo(session, boardNo);
+		session.close();
+		return board;
 	}
 
 }

@@ -18,7 +18,7 @@
                 <a href="#" onclick="mypageLink()">MYPAGE</a>
             </div>
             <div id="basket" class="user">
-                <a href="#" onclick="basketLink()"><img id="basketlink" src="./resources/image/header_Basket_Img.png"
+                <a href="#" onclick="basketLink()"><img id="basketlink" src="/resources/image/header_Basket_Img.png"
                         alt="장바구니 링크"></a>
             </div>
                 </c:if>

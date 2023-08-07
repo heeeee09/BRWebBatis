@@ -48,13 +48,17 @@ public class BoardListController extends HttpServlet {
 		String boardWriter = (String)request.getSession().getAttribute("memberId");
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		BRBoardService service = new BRBoardService();
-//		List<BRBoard> bList = service.selectBoardList(boardWriter);
 		// 네비게이터 만들기
 		PageData pd = service.selectBoardList(currentPage, boardWriter);
 		List<BRBoard> bList = pd.getbList();
+		BRBoard board = new BRBoard();
+//		request.
 		request.setAttribute("bList", bList);
 		request.setAttribute("pageNavi", pd.getPageNavi());
 		request.getRequestDispatcher("/WEB-INF/views/board/boardList.jsp").forward(request, response);
+		for(BRBoard b : bList) {
+			System.out.println(b.getBoardNo());
+		}
 	}
 	
 	/*

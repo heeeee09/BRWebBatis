@@ -17,15 +17,17 @@ public class BRBoard {
 );
 	 */
 	
-	
-	
-	
-	
-	
 	public BRBoard() {
 		super();
 	}
-	
+
+	public BRBoard(int boardNo, String boardSubject, String boardContent) {
+		super();
+		this.boardNo = boardNo;
+		this.boardSubject = boardSubject;
+		this.boardContent = boardContent;
+	}
+
 	public BRBoard(String boardSubject, String boardContent, String boardWriter) {
 		super();
 		this.boardSubject = boardSubject;
@@ -36,38 +38,43 @@ public class BRBoard {
 	public int getBoardNo() {
 		return boardNo;
 	}
+
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
+
 	public String getBoardSubject() {
 		return boardSubject;
 	}
+
 	public void setBoardSubject(String boardSubject) {
 		this.boardSubject = boardSubject;
 	}
+
 	public String getBoardContent() {
 		return boardContent;
 	}
+
 	public void setBoardContent(String boardContent) {
 		this.boardContent = boardContent;
 	}
+
 	public String getBoardDate() {
 		return boardDate;
 	}
+
 	public void setBoardDate(String boardDate) {
 		this.boardDate = boardDate;
 	}
+
 	public String getBoardWriter() {
 		return boardWriter;
 	}
+
 	public void setBoardWriter(String boardWriter) {
 		this.boardWriter = boardWriter;
 	}
 
-
-
-	
-	
 	
 }
 

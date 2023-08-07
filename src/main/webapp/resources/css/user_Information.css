@@ -24,7 +24,7 @@ label {
 }
 #joinBox p {
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     color: #402022;
 }
@@ -91,6 +91,11 @@ button {
     color: white;
     background-color: #F04DA3;
     cursor: pointer !important;
+}
+#button {
+	display: flex;
+	justify-content: center;
+	
 }
 #back {
     background-color: #402022;

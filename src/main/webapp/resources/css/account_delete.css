@@ -37,6 +37,8 @@ input {
     padding-top: 20px;
     display: flex;
     padding-bottom: 100px;
+    display : flex;
+    justify-content : center;
 }
 button {
     width: 300px;

@@ -17,21 +17,17 @@ public class BRBoardDAO {
 	}
 
 	public List<BRBoard> selectBoardList(SqlSession session, int currentPage, String boardWriter) {
-		int limit = 10;
+		int limit = 5;
 		int offset = (currentPage-1)*limit;
 		RowBounds rowBounds = new RowBounds(offset, limit);
 		List<BRBoard> bList = session.selectList("BoardMapper.selectBoardList", boardWriter, rowBounds);
 		return bList;
 	}
-	
-	public int selectBoardListCount(SqlSession session) {
-		int count = session.selectOne("BoardMapper.selectBoardListCount");	
-		return count;
-	}
 
 	public String generatePageNavi(SqlSession session, int currentPage) {
-//		int totalCount = Integer.valueOf(selectBoardListCount(session));	// 전체 글 수
-		int totalCount = selectBoardListCount(session);
+		int totalCount = session.selectOne("BoardMapper.selectBoardListCount");	// 전체 글 수
+//		String count = selectBoardListCount(session);
+//		int totalCount = Integer.parseInt(count);
 		int recordCountPerPage = 5;		// 페이지당 보여줄 글 수
 		int naviTotalCount = 0;		// 네비게이터 갯수
 		if(totalCount % recordCountPerPage > 0) { // 나머지가 있으면, 전체글/페이지당 출력하는 글 수 = 0보다 크면(나머지가 있으면)
@@ -73,5 +69,10 @@ public class BRBoardDAO {
 			result.append("<a href='/board/boardList.do?currentPage="+(endNavi+1)+">'[다음]</a>");
 		}
 		return result.toString();
+	}
+
+	public BRBoard selectOneByNo(SqlSession session, int boardNo) {
+		BRBoard board = session.selectOne("BoardMapper.selectOneByNo", boardNo);
+		return board;
 	}
 }

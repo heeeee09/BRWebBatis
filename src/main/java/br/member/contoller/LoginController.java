@@ -61,6 +61,7 @@ public class LoginController extends HttpServlet {
 			request.setAttribute("title", "로그인 실패");
 			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다.");
 			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
+			
 		}
 	}
 

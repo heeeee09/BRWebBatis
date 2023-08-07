@@ -64,7 +64,7 @@
 	                <div id="line"></div>
 	                <div id="tell" class="infoBox">
 	                    <label for="uer-tell" class="labels">연락처</label>
-	                    <input type="text" name="member-phone">
+	                    <input type="text" name="member-phone" value="${member.memberPhone }">
 	                </div>
 	                <div id="line"></div>
 	                <div id="address" class="infoBox">
@@ -75,10 +75,9 @@
 	            </div>
 	            <div id="button">
 	                <button type="submit" value="수정하기">수정하기</button>
-            </form>
-<!--                 <button type="submit" value="수정하기"><a href="/user_Information_Modify_Complite.html" class="whiteFont">수정하기</a></button> -->
-                <button type="submit" id="prevBtn"><a href="/member/myPage.do" class="whiteFont">이전 페이지로 이동</button></a>
+	                <button type="button" id="prevBtn"><a href="/member/myPage.do" class="whiteFont">이전 페이지로 이동</a></button>
             </div>
+            </form>
             </div>
         </section>
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

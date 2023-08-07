@@ -57,7 +57,7 @@ public class JoinController extends HttpServlet {
 		if(result > 0) {
 			request.setAttribute("title", "회원가입 성공");
 			request.setAttribute("msg", "회원가입이 완료되었습니다.");
-			response.sendRedirect("/common/serviceResult.do");
+			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
 		} else {
 			// 실패
 			request.setAttribute("title", "회원가입 실패");
