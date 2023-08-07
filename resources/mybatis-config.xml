@@ -16,7 +16,8 @@
  		</environment>
  	</environments>
  	<mappers>
- 		<mapper resource="mappers/member.mapper.xml"/> <!-- => 나 메퍼 만들었어요!!!! -->
+ 		<mapper resource="mappers/member.mapper.xml"/>
+ 		<mapper resource="mappers/board.mapper.xml"/>
  	</mappers>
  </configuration>
  

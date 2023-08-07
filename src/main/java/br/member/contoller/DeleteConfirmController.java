@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.member.model.service.BRMemberService;
+import br.member.model.vo.BRMember;
 
 /**
  * Servlet implementation class DeletePopController
@@ -40,8 +41,9 @@ public class DeleteConfirmController extends HttpServlet {
 		String memberId = (String)request.getSession().getAttribute("memberId");
 		String memberPw = (String)request.getSession().getAttribute("memberPw");
 		BRMemberService service = new BRMemberService();
+		BRMember mOne = new BRMember(memberId, memberPw);
 		
-		int result = service.deleteMember(memberId, memberPw);
+		int result = service.deleteMember(memberId, mOne);
 		if(result > 0) {
 			session.invalidate();
 			request.setAttribute("title", "회원 탈퇴 성공");

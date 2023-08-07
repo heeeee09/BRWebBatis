@@ -84,12 +84,13 @@ public class DeleteCheckController extends HttpServlet {
 		HttpSession session = request.getSession();
 		String memberId = (String)request.getSession().getAttribute("memberId");
 //		String memberPw = (String)request.getSession().getAttribute("memberPw");
-		String pwCheck = request.getParameter("member-pw-check");
+		String memberPw = request.getParameter("member-pw-check");
 //		String memberPw = (String)request.getSession().getAttribute("memberPw");
 		BRMemberService service = new BRMemberService();
+		BRMember mOne = new BRMember(memberId, memberPw);
 		// 로그인 되어 있는 아이디와 확인을 위해 입력한 비밀번호의 값을 체크한다.
 		// 있으면 true 리턴, 없으면 false 리턴
-		Boolean check = service.userCheck(memberId, pwCheck);
+		Boolean check = service.userCheck(mOne);
 		
 		if(check == true) {
 //			System.out.println(memberId + " " + memberPw);

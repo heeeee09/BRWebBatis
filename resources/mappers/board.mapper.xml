@@ -1,1 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="BoardMapper">
+ 	<resultMap type="br.board.model.vo.BRBoard" id="BoardResultMap">
+ 		<id 	property="boardNo" column="CUSTOMER_BOARD_NO"/>
+ 		<result property="boardSubject" column="CUSTOMER_BOARD_SUBJECT"/>
+ 		<result property="boardContent"   column="CUSTOMER_BOARD_CONTENT"/>
+ 		<result property="boardDate"   column="CUSTOMER_BOARD_DATE"/>
+ 		<result property="boardWriter"   column="CUSTOMER_BOARD_WRITER"/>
+ 	</resultMap>
+ 	<select id="selectBoardList" resultMap="BoardResultMap">
+ 		SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY CUSTOMER_BOARD_NO DESC) ROW_NUM, CUSTOMER_BOARD_DATE, CUSTOMER_BOARD_SUBJECT FROM BR_CUSTOMER_BOARD_TBL INNER JOIN BR_MEMBER_TBL ON CUSTOMER_BOARD_WRITER = MEMBER_ID WHERE CUSTOMER_BOARD_WRITER = #{boardWriter})
+ 	</select>
+ 	<insert id="boardInsert">
+ 		INSERT INTO BR_CUSTOMER_BOARD_TBL VALUES(SEQ_CUSTOMER_BOARD_NO.NEXTVAL,#{boardSubjet},#{boardContent},DEFAULT,#{boardWriter})
+ 	</insert>
+ 	<select id="selectBoardListCount" resultMap="BoardResultMap">
+ 		SELECT COUNT(*) FROM BR_CUSTOMER_BOARD_TBL
+ 	</select>
+ 
+ </mapper>

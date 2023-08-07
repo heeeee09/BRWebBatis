@@ -1,91 +1,37 @@
 package br.board.model.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.ValueExp;
+
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 
 import br.board.model.vo.BRBoard;
 
 public class BRBoardDAO {
 	
-	public int boardInsert(Connection conn, BRBoard board) {
-		String query = "INSERT INTO BR_CUSTOMOR_BOARD_TBL VALUES(SEQ_CUSTOMOR_BOARD_NO.NEXTVAL,?,?,DEFAULT,?)";
-		PreparedStatement pstmt = null;
-		int result = 0;
-		try {
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, board.getBoardSubject());
-			pstmt.setString(2, board.getBoardContent());
-			pstmt.setString(3, board.getBoardWriter());
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public int boardInsert(SqlSession session, BRBoard board) {
+		int result = session.insert("BoardMapper.boardInsert", board);
 		return result;
 	}
 
-//	public List<BRBoard> selectList(Connection conn, String boardWriter) {
-//		String query = "SELECT CUSTOMOR_BOARD_DATE, CUSTOMOR_BOARD_SUBJECT FROM BR_CUSTOMOR_BOARD_TBL INNER JOIN BR_MEMBER_TBL "
-//				+ "ON CUSTOMOR_BOARD_WRITER = MEMBER_ID WHERE CUSTOMOR_BOARD_WRITER = ?";
-//		PreparedStatement pstmt = null;
-//		ResultSet rset = null;
-//		List<BRBoard> bList = new ArrayList<BRBoard>(); 
-//		BRBoard board = null;
-//		try {
-//			pstmt = conn.prepareStatement(query);
-//			pstmt.setString(1, boardWriter);
-//			rset = pstmt.executeQuery();
-//			while(rset.next()) {
-//				board = new BRBoard();
-//				board.setBoardDate(rset.getString("CUSTOMOR_BOARD_DATE"));
-//				board.setBoardSubject(rset.getString("CUSTOMOR_BOARD_SUBJECT"));
-////				board.setBoardContent(rset.getString("CUSTOMOR_BOARD_CONTENT"));
-//				bList.add(board);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return bList;
-//	}
-
 	public List<BRBoard> selectBoardList(SqlSession session, int currentPage, String boardWriter) {
-		String query = "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY CUSTOMOR_BOARD_NO DESC) "
-				+ "ROW_NUM, CUSTOMOR_BOARD_DATE, CUSTOMOR_BOARD_SUBJECT FROM BR_CUSTOMOR_BOARD_TBL INNER JOIN BR_MEMBER_TBL "
-				+ "ON CUSTOMOR_BOARD_WRITER = MEMBER_ID WHERE CUSTOMOR_BOARD_WRITER = ?) WHERE ROW_NUM BETWEEN ? AND ?";
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		List<BRBoard> bList = new ArrayList<BRBoard>(); 
-		BRBoard board = null;
-		int recordCountPerPage = 5;		// 페이지당 보여줄 글 수
-		int start = currentPage*recordCountPerPage - (recordCountPerPage-1);	// 표시되는 게시글 시작
-		int end = currentPage*recordCountPerPage;		// 표시되는 게시글 끝
-		try {
-			pstmt = session.prepareStatement(query);
-			pstmt.setString(1, boardWriter);
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, end);
-			rset = pstmt.executeQuery();
-			while(rset.next()) {
-				board = new BRBoard();
-				board.setBoardDate(rset.getString("CUSTOMOR_BOARD_DATE"));
-				board.setBoardSubject(rset.getString("CUSTOMOR_BOARD_SUBJECT"));
-//				board.setBoardContent(rset.getString("CUSTOMOR_BOARD_CONTENT"));
-				bList.add(board);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		int limit = 10;
+		int offset = (currentPage-1)*limit;
+		RowBounds rowBounds = new RowBounds(offset, limit);
+		List<BRBoard> bList = session.selectList("BoardMapper.selectBoardList", boardWriter, rowBounds);
 		return bList;
 	}
+	
+	public int selectBoardListCount(SqlSession session) {
+		int count = session.selectOne("BoardMapper.selectBoardListCount");	
+		return count;
+	}
 
-	public String generatePageNavi(int currentPage) {
-		int totalCount = 8;		// 전체 글 수
+	public String generatePageNavi(SqlSession session, int currentPage) {
+//		int totalCount = Integer.valueOf(selectBoardListCount(session));	// 전체 글 수
+		int totalCount = selectBoardListCount(session);
 		int recordCountPerPage = 5;		// 페이지당 보여줄 글 수
 		int naviTotalCount = 0;		// 네비게이터 갯수
 		if(totalCount % recordCountPerPage > 0) { // 나머지가 있으면, 전체글/페이지당 출력하는 글 수 = 0보다 크면(나머지가 있으면)
