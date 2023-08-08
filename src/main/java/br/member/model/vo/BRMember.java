@@ -11,11 +11,6 @@ public class BRMember {
 	private String memberEmail;
 	private String memberPhone;
 	private String memberAddress;
-	private Timestamp noticeDate;
-	private String noticeSubject;
-	private String noticeContent;
-	private String noticeWriter;
-	private Timestamp answerDate;
 
 	public BRMember() {
 	}
@@ -111,46 +106,6 @@ public class BRMember {
 
 	public void setMemberAddress(String memberAddress) {
 		this.memberAddress = memberAddress;
-	}
-
-	public Timestamp getNoticeDate() {
-		return noticeDate;
-	}
-
-	public void setNoticeDate(Timestamp noticeDate) {
-		this.noticeDate = noticeDate;
-	}
-
-	public String getNoticeSubject() {
-		return noticeSubject;
-	}
-
-	public void setNoticeSubject(String noticeSubject) {
-		this.noticeSubject = noticeSubject;
-	}
-
-	public String getNoticeContent() {
-		return noticeContent;
-	}
-
-	public void setNoticeContent(String noticeContent) {
-		this.noticeContent = noticeContent;
-	}
-
-	public Timestamp getAnswerDate() {
-		return answerDate;
-	}
-
-	public void setAnswerDate(Timestamp answerDate) {
-		this.answerDate = answerDate;
-	}
-
-	public String getNoticeWriter() {
-		return noticeWriter;
-	}
-
-	public void setNoticeWriter(String noticeWriter) {
-		this.noticeWriter = noticeWriter;
 	}
 
 	@Override

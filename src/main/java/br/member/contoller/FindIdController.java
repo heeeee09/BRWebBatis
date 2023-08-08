@@ -36,10 +36,28 @@ public class FindIdController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberName = request.getParameter("member-id");
+		request.setCharacterEncoding("UTF-8");
+		String memberName = request.getParameter("member-name");
 		String memberphone = request.getParameter("member-phone");
 		BRMemberService service = new BRMemberService();
+		BRMember result = service.findId(memberName, memberphone);
+		
+		if(result != null) {
+			request.setAttribute("title", "조회 성공");
+			request.setAttribute("msg", "조회에 성공했습니다.\n 아이디:"+result.getMemberId());
+			request.setAttribute("urlIndex", "/member/login.do");
+			request.setAttribute("btnMsgIndex", "로그인 화면으로 이동");
+			request.setAttribute("urlBack", "/member/findPw.do");
+			request.setAttribute("btnMsgBack", "비밀번호 찾기");
+			request.getRequestDispatcher("/WEB-INF/views/common/serviceResult.jsp").forward(request, response);
+		}else {
+			request.setAttribute("title", "조회 실패");
+			request.setAttribute("msg", "데이터가 존재하지 않습니다/");
+			request.setAttribute("urlIndex", "/member/findId.do");
+			request.setAttribute("btnMsgIndex", "아이디 찾기로 이동");
+			request.getRequestDispatcher("/WEB-INF/views/common/serviceResultOneBtn.jsp").forward(request, response);
+		}
 		
 	}
-
 }
+

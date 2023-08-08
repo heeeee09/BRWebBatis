@@ -31,5 +31,16 @@ public class BRMemberDAO {
 		return member;
 	}
 
+	public BRMember findId(SqlSession session, BRMember mOne) {
+		BRMember member = session.selectOne("MemberMapper.findId", mOne);
+		return mOne;
+	}
+
+	public BRMember findId(SqlSession session, String memberName, String memberphone) {
+		BRMember member = session.selectOne("MemberMapper.findId", 
+				@Param("memberName")memberName, @Param("memberPhone")memberphone);
+		return member;
+	}
+
 
 }

@@ -27,7 +27,7 @@ a {
 
 #logo {
     width: 100%;
-    height: 220px;
+    height: 240px;
     background-color: white;
     margin-bottom: 0;
     float: left;
@@ -35,6 +35,7 @@ a {
 }
 
 #logoimg {
+	max-width:1200px;
     padding: 50px;
     display: block;
     margin: auto;
@@ -44,8 +45,8 @@ a {
 #user-category {
 	position: absolute;
 	width: 300px;
-	top: 185px;
-    left: 900px;
+	top: 200px;
+    right: 10px;
     display: flex;
 /*     justify-content: space-around; */
     justify-content: flex-end;

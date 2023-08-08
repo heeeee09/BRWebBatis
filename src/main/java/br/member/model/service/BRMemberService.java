@@ -69,4 +69,18 @@ public class BRMemberService {
 		}
 	}
 
+	public BRMember findId(BRMember mOne) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		BRMember result = bDao.findId(session, mOne);
+		session.close();
+		return result;
+	}
+
+	public BRMember findId(String memberName, String memberphone) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		BRMember result = bDao.findId(session, memberName, memberphone);
+		session.close();
+		return result;
+	}
+
 }

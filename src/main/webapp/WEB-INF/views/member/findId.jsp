@@ -32,7 +32,7 @@
 	                    <div class="password">
 	                        <label for="user-pw">전화번호</label>
 	                        <div>
-	                            <input type="password" name="member-phone" placeholder="  전화번호를 입력하세요">
+	                            <input type="text" name="member-phone" placeholder="  전화번호를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>

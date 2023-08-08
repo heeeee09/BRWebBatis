@@ -9,6 +9,7 @@
 .mains {
     width: 100%;
     display: flex;
+    justify-content: center
 }
 
 #monthFlavor {
@@ -72,6 +73,7 @@
 }
 
 #main4 {
+	
     /* background-color: rgb(63, 200, 222); */
     height: 200px;
     /* display: flex; */
