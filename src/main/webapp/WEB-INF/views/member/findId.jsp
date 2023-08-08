@@ -19,29 +19,28 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="login-field">
-	            <p>로그인</p>
+	            <p>아이디 찾기</p>
 	                <div id="loginBox">
-            	<form action="/member/login.do" method="post">
+            		<form action="/member/findId.do" method="post">
 	                    <div class="id">
-	                        <label for="user-id">아이디</label>
+	                        <label for="user-id">이름</label>
 	                        <div>
-	                            <input type="text" name="member-id" placeholder="  아이디를 입력하세요">
+	                            <input type="text" name="member-name" placeholder="  이름을 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
 	                    <div class="password">
-	                        <label for="user-pw">비밀번호</label>
+	                        <label for="user-pw">전화번호</label>
 	                        <div>
-	                            <input type="password" name="member-pw" placeholder="  비밀번호를 입력하세요">
+	                            <input type="password" name="member-phone" placeholder="  전화번호를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
 	                    <div id="btnBox">
-	                    <button id="loginbtn" type="submit">로그인</button>
-                	     <button id="pwbtn" type="button" onclick="legistor()">회원가입</button>
-                	     <br><a href="/member/findInfo.do">아이디 또는 비밀번호를 잊으셨나요?</a>
+		                    <button id="loginbtn" type="submit">아이디 찾기</button>
 	                	</div>
-                		</form>
+               	 	</form>
+                </div>
             </section>
         </main>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
@@ -49,9 +48,6 @@
 
     <script>
   	  <jsp:include page="/WEB-INF/views/include/headerLinkFunction.jsp"/>
-  	  	function legistor(){
-  	  		location.href="/member/registor.do";
-  	  	}
 //         function success() {
 //             let left = (screen.availWidth -400) / 2;
 //             let top = (screen.availHeight -300) / 2;
