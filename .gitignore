@@ -2,4 +2,5 @@
 .classpath
 .project
 .jsdtscope - .settings
+.settings/
 /bin/
