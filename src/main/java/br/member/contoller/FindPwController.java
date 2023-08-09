@@ -2,7 +2,6 @@ package br.member.contoller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +13,16 @@ import br.member.model.service.BRMemberService;
 import br.member.model.vo.BRMember;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class FindIdController
  */
-@WebServlet("/member/login.do")
-public class LoginController extends HttpServlet {
+@WebServlet("/member/findPw.do")
+public class FindPwController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public FindPwController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,42 +31,34 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/member/login.jsp");
-		view.forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/member/findPw.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String memberId = request.getParameter("member-id");
-		String memberpw = request.getParameter("member-pw");
-		
-		
-		BRMember member = new BRMember(memberId, memberpw);
-		
+		String memberEmail = request.getParameter("member-email");
+		String memberPhone = request.getParameter("member-phone");
+		BRMember member = new BRMember(memberId, memberEmail, memberPhone);
 		BRMemberService service = new BRMemberService();
-		
-		BRMember result = service.checkLogin(member);
+		BRMember result = service.findPw(member);
 		System.out.println(result);
-		if(result != null) {
+		
+		if(result.getMemberId() != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", result.getMemberId());
-			session.setAttribute("memberPw", result.getMemberPw());
-			session.setAttribute("memberName", result.getMemberName());
-			session.setAttribute("memberBirth", result.getMemberBirth());
-			session.setAttribute("memberGender", result.getMemberGender());
-			response.sendRedirect("/index.jsp");
+			request.getRequestDispatcher("/WEB-INF/views/member/resetPw.jsp").forward(request, response);
 		}else {
-			request.setAttribute("title", "로그인 실패");
-			request.setAttribute("msg", "아이디 또는 비밀번호가 틀립니다.");
-			request.setAttribute("urlIndex", "/index.jsp");
-			request.setAttribute("btnMsgIndex", "메인으로 이동");
-			request.setAttribute("urlBack", "/member/login.do");
-			request.setAttribute("btnMsgBack", "로그인 화면으로 이동");
-			request.getRequestDispatcher("/common/serviceResult.do").forward(request, response);
-			
+			request.setAttribute("title", "조회 실패");
+			request.setAttribute("msg", "데이터가 존재하지 않습니다.");
+			request.setAttribute("urlIndex", "/member/findPw.do");
+			request.setAttribute("btnMsgIndex", "이전 화면으로 이동");
+			request.getRequestDispatcher("/WEB-INF/views/common/serviceResultOneBtn.jsp").forward(request, response);
 		}
+		
 	}
-
 }
+

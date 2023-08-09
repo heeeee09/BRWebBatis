@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
+    <title>비밀번호 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/login.css">
+    <link rel="stylesheet" href="../resources/css/inputInfo.css">
     <link rel="stylesheet" href="../resources/css/reset.css">
     <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 </head>
@@ -19,29 +19,34 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="login-field">
-	            <p>로그인</p>
+	            <p>비밀번호 찾기</p>
 	                <div id="loginBox">
-            	<form action="/member/login.do" method="post">
-	                    <div class="id">
+            	<form action="/member/findPw.do" method="post">
+	                    <div class="inputBox">
 	                        <label for="user-id">아이디</label>
 	                        <div>
 	                            <input type="text" name="member-id" placeholder="  아이디를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
-	                    <div class="password">
-	                        <label for="user-pw">비밀번호</label>
+	                    <div class="inputBox">
+	                        <label for="user-pw">이메일</label>
 	                        <div>
-	                            <input type="password" name="member-pw" placeholder="  비밀번호를 입력하세요">
+	                            <input type="text" name="member-email" placeholder="  가입 시 작성한 이메일을 입력하세요">
+	                        </div>
+	                    </div>
+	                    <div class="inputBox">
+	                        <label for="user-pw">전화번호</label>
+	                        <div>
+	                            <input type="text" name="member-phone" placeholder="  전화번호를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
 	                    <div id="btnBox">
-	                    <button id="loginbtn" type="submit">로그인</button>
-                	     <button id="pwbtn" type="button" onclick="legistor()">회원가입</button>
-                	     <br><a href="/member/findInfo.do">아이디 또는 비밀번호를 잊으셨나요?</a>
+		                    <button id="loginbtn" type="submit">비밀번호 찾기</button>
 	                	</div>
                 		</form>
+                	</div>
             </section>
         </main>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>

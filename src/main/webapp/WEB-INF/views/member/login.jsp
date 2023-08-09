@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../resources/css/login.css">
+    <link rel="stylesheet" href="../resources/css/inputInfo.css">
     <link rel="stylesheet" href="../resources/css/reset.css">
     <link rel="stylesheet" href="../resources/css/logo_nav_footer.css">
 </head>
@@ -22,14 +22,14 @@
 	            <p>로그인</p>
 	                <div id="loginBox">
             	<form action="/member/login.do" method="post">
-	                    <div class="id">
+	                    <div class="inputBox">
 	                        <label for="user-id">아이디</label>
 	                        <div>
 	                            <input type="text" name="member-id" placeholder="  아이디를 입력하세요">
 	                        </div>
 	                    </div>
 	                    <div id="line"></div>
-	                    <div class="password">
+	                    <div class="inputBox">
 	                        <label for="user-pw">비밀번호</label>
 	                        <div>
 	                            <input type="password" name="member-pw" placeholder="  비밀번호를 입력하세요">

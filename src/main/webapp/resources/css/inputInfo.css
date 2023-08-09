@@ -13,23 +13,17 @@ label {
     width: 180px;
     color: #402022;
 }
-.id {
+.inputBox {
     display: flex;
     justify-content: flex-start;
-    font-size: 40px;
+    align-items: center;
+    font-size: 35px;
     font-family: 'Nanum Gothic', sans-serif;
     padding: 30px;
 }
 #line {
     border: 1px solid #ccc;
     width: 900px;
-}
-.password {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 40px;
-    font-family: 'Nanum Gothic', sans-serif;
-    padding: 30px;
 }
 input {
     width: 500px;
@@ -43,7 +37,7 @@ input::placeholder {
 
 #login-field>p {
     font-family: 'Nanum Gothic', sans-serif;
-    font-size: 4em;
+    font-size: 3em;
     text-align: center;
     color: #402022;
 }

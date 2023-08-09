@@ -1,7 +1,5 @@
 package br.member.model.vo;
 
-import java.sql.Timestamp;
-
 public class BRMember {
 	private String memberId;
 	private String memberPw;
@@ -42,6 +40,18 @@ public class BRMember {
 		this.memberEmail = memberEmail;
 		this.memberPhone = memberPhone;
 		this.memberAddress = memberAddress;
+	}
+	
+	public BRMember(String memberId, String memberEmail, String memberPhone) {
+		super();
+		this.memberId = memberId;
+		this.memberEmail = memberEmail;
+		this.memberPhone = memberPhone;
+	}
+
+	public BRMember(String memberEmail) {
+		super();
+		this.memberEmail = memberEmail;
 	}
 
 	public String getMemberId() {

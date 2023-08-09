@@ -69,16 +69,23 @@ public class BRMemberService {
 		}
 	}
 
-	public BRMember findId(BRMember mOne) {
+	public BRMember findId(BRMember member) {
 		SqlSession session = SqlSessionTemplate.getSqlSession();
-		BRMember result = bDao.findId(session, mOne);
+		BRMember result = bDao.findId(session, member);
 		session.close();
 		return result;
 	}
 
-	public BRMember findId(String memberName, String memberphone) {
+	public BRMember findPw(BRMember member) {
 		SqlSession session = SqlSessionTemplate.getSqlSession();
-		BRMember result = bDao.findId(session, memberName, memberphone);
+		BRMember result = bDao.findPw(session, member);
+		session.close();
+		return result;
+	}
+
+	public int resetPw(BRMember member) {
+		SqlSession session = SqlSessionTemplate.getSqlSession();
+		int result = bDao.resetPw(session, member);
 		session.close();
 		return result;
 	}

@@ -31,15 +31,19 @@ public class BRMemberDAO {
 		return member;
 	}
 
-	public BRMember findId(SqlSession session, BRMember mOne) {
-		BRMember member = session.selectOne("MemberMapper.findId", mOne);
-		return mOne;
+	public BRMember findId(SqlSession session, BRMember member) {
+		BRMember result = session.selectOne("MemberMapper.findId", member);
+		return result;
 	}
 
-	public BRMember findId(SqlSession session, String memberName, String memberphone) {
-		BRMember member = session.selectOne("MemberMapper.findId", 
-				@Param("memberName")memberName, @Param("memberPhone")memberphone);
-		return member;
+	public BRMember findPw(SqlSession session, BRMember member) {
+		BRMember result = session.selectOne("MemberMapper.findPw", member);
+		return result;
+	}
+
+	public int resetPw(SqlSession session, BRMember member) {
+		int result = session.update("MemberMapper.resetPw", member);
+		return result;
 	}
 
 

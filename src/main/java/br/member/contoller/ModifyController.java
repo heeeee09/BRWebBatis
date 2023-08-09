@@ -44,6 +44,7 @@ public class ModifyController extends HttpServlet {
 		String memberAddress = request.getParameter("member-address");
 		BRMember memberEdit = new BRMember(memberId, memberPw, memberEmail, memberPhone, memberAddress);
 		BRMemberService service = new BRMemberService();
+		System.out.println(memberEdit);
 		int result = service.oneMemberModify(memberEdit);
 		if(result > 0) {
 			// 성공하면 메인페이지

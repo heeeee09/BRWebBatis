@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이디 찾기</title>
+    <title>비밀번호 재설정</title>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../resources/css/inputInfo.css">
     <link rel="stylesheet" href="../resources/css/reset.css">
@@ -19,21 +19,27 @@
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
         <main>
             <section id="login-field">
-	            <p>아이디 찾기</p>
+	            <p>새 비밀번호 설정하기</p>
 	                <div id="loginBox">
-            		<form action="/member/findId.do" method="post">
+         			   	<form action="/member/resetPw.do" method="post">
+   		                    <div class="inputBox">
+	                    	    <label for="user-id">아이디</label>
+	           		             <div>
+	                    	        <input type="text" name="member-id" placeholder="  아이디를 입력하세요">
+	                 		     </div>
+	              		      </div>
 	                    <div class="inputBox">
-	                        <label for="user-pw">이메일</label>
-	                        <div>
-	                            <input type="text" name="member-email" placeholder="  이메일 주소를 입력하세요">
-	                        </div>
+	                        <label for="user-id">새 비밀번호</label>
+		                        <div>
+		                            <input type="text" name="member-pw" placeholder="  새로운 비밀번호를 입력하세요">
+		                        </div>
 	                    </div>
 	                    <div id="line"></div>
 	                    <div id="btnBox">
-		                    <button id="loginbtn" type="submit">아이디 찾기</button>
+		                    <button id="loginbtn" type="submit">비밀번호 설정</button>
 	                	</div>
-               	 	</form>
-                </div>
+                		</form>
+                	</div>
             </section>
         </main>
 	<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
